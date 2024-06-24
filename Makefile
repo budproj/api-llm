@@ -1,5 +1,5 @@
-export PORT=:8080
+include .env
 
 run:
 		templ generate
-		PORT=$(PORT) go run cmd/main.go
+		PORT=$(PORT) go run entrypoint/controllers/http/main.go

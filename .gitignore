@@ -1,0 +1,7 @@
+# Secret environment variables
+# --------------------------------------------------------------------------------------------------
+.env
+.env.local
+.env.secret
+.env.docker
+
