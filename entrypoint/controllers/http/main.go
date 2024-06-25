@@ -6,6 +6,7 @@ import (
 
 	"github.com/gofor-little/env"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 func main() {
@@ -20,6 +21,7 @@ func main() {
 	}
 
 	app := echo.New()
+	app.Use(middleware.CORSWithConfig(middleware.DefaultCORSConfig))
 
 	app.GET("/", HomeHandler.ShowHome)
 	app.POST("/generate", HomeHandler.Generate)

@@ -2,6 +2,7 @@ package service
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	model "go-backend/services/entities"
 
@@ -10,18 +11,17 @@ import (
 )
 
 type GenerateService struct {
-	request model.SummarizeKeyResultInput
 }
 
-func (s GenerateService) Generate(Skri *model.SummarizeKeyResultInput) string {
+func (s GenerateService) Generate(Skri model.SummarizeKeyResultInput) string {
 	LLM_API_KEY := env.Get("LLM_API_KEY", "")
 	client := openai.NewClient(LLM_API_KEY)
-	// jsonData, err := json.Marshal(Skri)
-	// if err != nil {
-	// 	fmt.Println("Erro ao converter para JSON:", err)
-	// }
+	jsonData, err := json.Marshal(Skri)
+	if err != nil {
+		fmt.Println("Erro ao converter para JSON:", err)
+	}
 	fmt.Println(Skri)
-	// stringToSendToOpenAi := fmt.Sprintf("Resuma este Key-Result baseado na metodologia OKR: %s", jsonData)
+	stringToSendToOpenAi := fmt.Sprintf("Resuma este Key-Result baseado na metodologia OKR: %s", jsonData)
 	resp, err := client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
@@ -29,7 +29,7 @@ func (s GenerateService) Generate(Skri *model.SummarizeKeyResultInput) string {
 			Messages: []openai.ChatCompletionMessage{
 				{
 					Role:    openai.ChatMessageRoleUser,
-					Content: "Anagrama de Seiji Hirao",
+					Content: stringToSendToOpenAi,
 				},
 			},
 		},

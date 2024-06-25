@@ -1,10 +1,5 @@
 package model
 
-type Generate struct {
-	Id   int
-	Text string
-}
-
 type SummarizeKeyResultInput struct {
 	Objective   Objective `json:"objective"`
 	Cycle       Cycle     `json:"cycle"`

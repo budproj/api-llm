@@ -3,6 +3,7 @@ package home
 templ Hello(name string, ) {
     <!DOCTYPE html>
 <html lang="en">
+<script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +21,6 @@ templ Hello(name string, ) {
 </head>
 <body>
 
-	<div hx-get="/path/to/your/endpoint" hx-trigger="load">
   <div class="flex items-center">
     <h3 class="font-bold mr-2 font-bold text-gray-500 text-sm uppercase">
       EVOLUÇÃO DO RESULTADO CHAVE
@@ -33,7 +33,6 @@ templ Hello(name string, ) {
     <div class="mt-5">
       </div>
     </div>
-  </div>
     <div id="generated-text">
     <button class="loaded-content flex items-center justify-center w-full px-4 py-2 mt-5 border border-pink-500 rounded-md text-pink-500 hover:bg-pink-500        hover:text-white"
            hx-post="/generate"
@@ -48,12 +47,12 @@ templ Hello(name string, ) {
             Entenda melhor este resultado-chave
     </button>
         <div id="indicator" class="htmx-indicator hidden"> 
-          <img  src="static/wand_big.gif"  alt="This is a wand icon" />
+          <img  src="static/images/wand_big.gif"  alt="This is a wand icon" />
           <p class="mt-2 text-gray-500">Escolhendo o melhor baralho para mágica</p>
         </div>
     </div>
     </body>
-	<script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous"></script>
+	
 
 </html>
 
