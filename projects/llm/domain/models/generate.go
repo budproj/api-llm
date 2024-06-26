@@ -1,4 +1,4 @@
-package model
+package models
 
 type SummarizeKeyResultInput struct {
 	Objective   Objective `json:"objective"`

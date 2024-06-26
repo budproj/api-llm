@@ -1,9 +1,9 @@
-package handler
+package logic
 
 import (
-	"go-backend/entrypoint/templates/html/home"
-	service "go-backend/services"
-	model "go-backend/services/entities"
+	"apicore/projects/llm/entrypoints/templates/html/home"
+	service "apicore/projects/llm/services"
+	model "apicore/projects/llm/services/entities"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
